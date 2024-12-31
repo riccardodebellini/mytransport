@@ -1,0 +1,18 @@
+{
+  "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+  "accept-encoding": "gzip, deflate, br, zstd",
+  "accept-language": "it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7",
+  "cache-control": "max-age=0",
+  "cookie": "_ga=GA1.1.1094638075.1734094086; _ga=GA1.1.1094638075.1734094086; _ga_5W1ZB23GRH=GS1.1.1734094181.1.1.1734094217.0.0.0; _ga_RD7BG8RLV0=GS1.1.1734541890.5.0.1734541890.0.0.0; TS01ac3475=0199b2c74a55444afe1aa05c9b25acfc9d695088d80dbca4018f777758e5691d1801f3a9fc6311b2e72d707e00653e493a7e4f4cc7",
+  "dnt": "1",
+  "priority": "u=0, i",
+  "sec-ch-ua": "\"Google Chrome\";v=\"131\", \"Chromium\";v=\"131\", \"Not_A Brand\";v=\"24\"",
+  "sec-ch-ua-mobile": "?0",
+  "sec-ch-ua-platform": "\"Windows\"",
+  "sec-fetch-dest": "document",
+  "sec-fetch-mode": "navigate",
+  "sec-fetch-site": "none",
+  "sec-fetch-user": "?1",
+  "upgrade-insecure-requests": "1",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+}
