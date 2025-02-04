@@ -22,7 +22,13 @@ class MainNavigationDest {
   /// The FAB displayed in the NavBar or in the NavRail when this page is selected
   final MainNavigationFAB? fab;
 
-  const MainNavigationDest({
+  /// The FAB displayed in the NavBar or in the NavRail when this page is selected
+  final bool smallFab;
+
+  /// The padding for extended screen surface
+  final double? tabPadding;
+
+  const MainNavigationDest( {
     this.fab,
     required this.appBarTitle,
     this.appBarActions = const [],
@@ -30,6 +36,8 @@ class MainNavigationDest {
     required this.text,
     required this.icon,
     required this.destination,
+    this.tabPadding = 8.0,
+    this.smallFab = true,
   });
 }
 
@@ -45,10 +53,10 @@ class MainNavigationFAB {
   /// The text displayed on the FAB
   ///
   /// **Works only in landscape mode**
-  final String label;
+  final String? label;
 
   const MainNavigationFAB(
-      {this.onPressed, required this.icon, required this.label});
+      {this.onPressed, required this.icon, this.label});
 }
 
 class MainNavigation extends StatefulWidget {
@@ -71,6 +79,8 @@ class MainNavigation extends StatefulWidget {
 
   /// **Experimental** _do not use_
   final int largeBreakpoint;
+
+
 
   const MainNavigation({
     super.key,
@@ -97,12 +107,17 @@ class _MainNavigationState extends State<MainNavigation> {
           actions: widget.pageData[_currentIndex].appBarActions! +
               widget.fixedActions!),
       floatingActionButton: widget.pageData[_currentIndex].fab != null
+          ? (widget.pageData[_currentIndex].smallFab != true
           ? FloatingActionButton.extended(
         heroTag: null,
         onPressed: widget.pageData[_currentIndex].fab?.onPressed,
         icon: widget.pageData[_currentIndex].fab?.icon,
-        label: Text(widget.pageData[_currentIndex].fab!.label),
-      )
+        label: Text(widget.pageData[_currentIndex].fab!.label!),
+      ) : FloatingActionButton(
+        heroTag: null,
+        onPressed: widget.pageData[_currentIndex].fab?.onPressed,
+        child: widget.pageData[_currentIndex].fab?.icon,
+      ))
           : null,
       body: widget.pageData[_currentIndex].destination,
       bottomNavigationBar: NavigationBar(
@@ -153,14 +168,15 @@ class _MainNavigationState extends State<MainNavigation> {
                 padding: const EdgeInsets.all(8.0),
                 child: Theme.of(context).brightness == Brightness.light
                     ? Card.outlined(
+                  clipBehavior: Clip.hardEdge,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(widget.pageData[_currentIndex].tabPadding!),
                       child: widget.pageData[_currentIndex].destination,
                     ))
-                    : Card(
+                    : Card( clipBehavior: Clip.hardEdge,
                     elevation: 0,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(widget.pageData[_currentIndex].tabPadding!),
                       child: widget.pageData[_currentIndex].destination,
                     )),
               )),

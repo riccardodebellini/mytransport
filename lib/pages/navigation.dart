@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mytransportation/pages/account/account.page.dart';
 import 'package:mytransportation/pages/home/home.page.dart';
 import 'package:mytransportation/system/responsive_navigation.dart';
+
+import 'lines/lines.page.dart';
+
 
 class Navigation extends StatelessWidget {
   const Navigation({super.key});
@@ -11,16 +13,21 @@ class Navigation extends StatelessWidget {
     return MainNavigation(
       pageData: [
         MainNavigationDest(
+          tabPadding: 0,
           appBarTitle: Text("Home"),
           text: "Home",
           icon: Icon(Icons.home_filled),
-          destination: HomePage(),
+          destination: HomePage(key: homePageKey,),
+          smallFab: true,
+          fab: MainNavigationFAB(icon: Icon(Icons.gps_fixed_rounded), onPressed: () async {
+            homePageKey.currentState?.centerOnUser();
+          })
         ),
         MainNavigationDest(
-          appBarTitle: Text("Account"),
-          text: "Account",
-          icon: Icon(Icons.settings_rounded),
-          destination: AccountPage(),
+          appBarTitle: Text("Linee"),
+          text: "Linee",
+          icon: Icon(Icons.route_rounded),
+          destination: LinesPage(),
         ),
       ],
     );

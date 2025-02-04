@@ -10,11 +10,18 @@ environment:
   sdk: ^3.7.0-209.1.beta
 
 dependencies:
+  dio: ^5.7.0
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flutter_map: ^7.0.2
+  flutter_map: any
+  flutter_map_marker_cluster: ^1.4.0
+  fuzzywuzzy: ^1.2.0
+  geolocator: ^13.0.2
+  http: ^1.2.2
+  latlong2: ^0.9.1
+  skeletonizer: ^1.4.3
 
 dev_dependencies:
   flutter_test:
